@@ -12,6 +12,7 @@ namespace WS.Controllers
         {
             ViewBag.Title = "Home Page";
 
+            ML.Result result = BusnessLayer.Empresa.GetAll();
             return View();
         }
     }

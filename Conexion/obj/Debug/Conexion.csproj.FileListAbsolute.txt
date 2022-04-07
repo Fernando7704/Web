@@ -1,0 +1,5 @@
+C:\Users\ferch\documents\visual studio 2015\Projects\WebService\Conexion\bin\Debug\Conexion.dll
+C:\Users\ferch\documents\visual studio 2015\Projects\WebService\Conexion\bin\Debug\Conexion.pdb
+C:\Users\ferch\documents\visual studio 2015\Projects\WebService\Conexion\obj\Debug\Conexion.csprojResolveAssemblyReference.cache
+C:\Users\ferch\documents\visual studio 2015\Projects\WebService\Conexion\obj\Debug\Conexion.dll
+C:\Users\ferch\documents\visual studio 2015\Projects\WebService\Conexion\obj\Debug\Conexion.pdb
