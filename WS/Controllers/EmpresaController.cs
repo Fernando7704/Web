@@ -58,6 +58,7 @@ namespace WS.Controllers
         public IHttpActionResult Delete(int IdDepartamento)
         {
             ML.Result result = BusnessLayer.Empresa.Delete(IdDepartamento);
+            //Hola Mundo!!
             return Ok(result);
         }
     }
