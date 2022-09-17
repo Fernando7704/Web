@@ -25,24 +25,40 @@ namespace WS.Controllers
         }
 
         // GET: api/Empresa/5
-        public string Get(int id)
+        [Route("api/Empresa/{IdDepartamento}")]
+        [HttpGet]
+        public IHttpActionResult Get(int IdDepartamento)
         {
-            return "value";
+            ML.Result result = BusnessLayer.Empresa.GetById(IdDepartamento);
+            return Ok(result);
         }
 
         // POST: api/Empresa
-        public void Post([FromBody]string value)
+        [Route("api/Empresa")]
+        [HttpPost]
+        public IHttpActionResult Post([FromBody]ML.Empresa empresa)
         {
+            ML.Result result = BusnessLayer.Empresa.Agregar(empresa);
+            return Ok(result);
         }
 
         // PUT: api/Empresa/5
-        public void Put(int id, [FromBody]string value)
+        [Route("api/Empresa/{IdEmpresa}")]
+        [HttpPut]
+        public IHttpActionResult Put(int IdEmpresa, [FromBody]ML.Empresa empresa)
         {
+            empresa.IdEmpresa = IdEmpresa;
+            ML.Result result = BusnessLayer.Empresa.Actualizar(empresa);
+            return Ok(result);
         }
 
         // DELETE: api/Empresa/5
-        public void Delete(int id)
+        [Route("api/Empresa/{IdDepartamento}")]
+        [HttpDelete]
+        public IHttpActionResult Delete(int IdDepartamento)
         {
+            ML.Result result = BusnessLayer.Empresa.Delete(IdDepartamento);
+            return Ok(result);
         }
     }
 }

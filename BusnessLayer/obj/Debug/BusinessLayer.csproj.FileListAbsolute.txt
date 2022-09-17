@@ -2,7 +2,6 @@ C:\Users\ferch\documents\visual studio 2015\Projects\WebService\BusnessLayer\bin
 C:\Users\ferch\documents\visual studio 2015\Projects\WebService\BusnessLayer\bin\Debug\BusnessLayer.pdb
 C:\Users\ferch\documents\visual studio 2015\Projects\WebService\BusnessLayer\bin\Debug\Conexion.dll
 C:\Users\ferch\documents\visual studio 2015\Projects\WebService\BusnessLayer\bin\Debug\ML.dll
-C:\Users\ferch\documents\visual studio 2015\Projects\WebService\BusnessLayer\bin\Debug\MySql.Data.dll
 C:\Users\ferch\documents\visual studio 2015\Projects\WebService\BusnessLayer\bin\Debug\Google.Protobuf.dll
 C:\Users\ferch\documents\visual studio 2015\Projects\WebService\BusnessLayer\bin\Debug\ZstdNet.dll
 C:\Users\ferch\documents\visual studio 2015\Projects\WebService\BusnessLayer\bin\Debug\K4os.Compression.LZ4.Streams.dll

@@ -56,5 +56,128 @@ namespace BusnessLayer
 
             return result;
         }
+        public static ML.Result GetById(int IdDepartamento)
+        {
+            ML.Result result = new ML.Result();
+            try
+            {
+                using(MySqlConnection con = new MySqlConnection(Conexion.Connection.Conexion()))
+                {
+                    con.Open();
+                    string sql = "SELECT * FROM empresa WHERE IdEmpresa=" + IdDepartamento;
+                    MySqlCommand cmd = new MySqlCommand(sql,con);
+                    MySqlDataReader dr = cmd.ExecuteReader();
+                    DataTable dt = new DataTable();
+                    dt.Load(dr);
+                    if (dt.Rows.Count > 0)
+                    {
+                        DataRow drw = dt.Rows[0];
+                        ML.Empresa empresa = new ML.Empresa();
+                        empresa.IdEmpresa = Convert.ToInt16(drw["IdEmpresa"]);
+                        empresa.RazonSocial = drw["RazonSocial"].ToString();
+                        empresa.Estatus = Convert.ToInt16(drw["Estatus"]);
+                        result.Object = empresa;
+                        result.result = true;
+                        result.ErrorMessage = "Consulta Éxitosa";
+
+                    }
+                    else
+                    {
+                        result.ErrorMessage = "No se encuentra disponible ese Id";
+                        result.result = false;
+                    }
+                }
+
+            }catch(Exception ex)
+            {
+                result.ErrorMessage = ex.Message;
+                result.result = false;
+            }
+
+
+            return result;
+
+        }
+        public static ML.Result Delete(int IdDepartamento)
+        {
+            ML.Result result = new ML.Result();
+            try
+            {
+                using(MySqlConnection con = new MySqlConnection(Conexion.Connection.Conexion()))
+                {
+                    con.Open();
+                    //string sql = "INSERT INTO empresa(RazonSocial,Estatus) VALUES('"+""+","+1+")";
+                    string sql = "DELETE FROM empresa WHERE IdEmpresa="+IdDepartamento;
+                    MySqlCommand cmd = new MySqlCommand(sql, con);
+                    int row = cmd.ExecuteNonQuery();
+                    if (row > 0)
+                    {
+                        result.ErrorMessage = "Se ha eliminado correctamente";
+                        result.result = true;
+                    }
+                }
+
+            }catch(Exception ex)
+            {
+                result.ErrorMessage = ex.Message;
+                result.result = false;
+
+            }
+            return result;
+        }
+        public static ML.Result Agregar(ML.Empresa empresa)
+        {
+            ML.Result result = new ML.Result();
+            try
+            {
+                using (MySqlConnection con = new MySqlConnection(Conexion.Connection.Conexion()))
+                {
+                    con.Open();
+                    string sql = "INSERT INTO empresa(RazonSocial,Estatus) VALUES('"+empresa.RazonSocial+"',"+empresa.Estatus+")";
+                    MySqlCommand cmd = new MySqlCommand(sql, con);
+                    int row = cmd.ExecuteNonQuery();
+                    if (row > 0)
+                    {
+                        result.ErrorMessage = "Se ha insertado correctamente";
+                        result.result = true;
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                result.ErrorMessage = ex.Message;
+                result.result = false;
+
+            }
+            return result;
+        }
+        public static ML.Result Actualizar(ML.Empresa empresa)
+        {
+            ML.Result result = new ML.Result();
+            try
+            {
+                using (MySqlConnection con = new MySqlConnection(Conexion.Connection.Conexion()))
+                {
+                    con.Open();
+                    string sql = "UPDATE empresa SET RazonSocial='"+empresa.RazonSocial+"',Estatus="+empresa.Estatus+" WHERE IdEmpresa="+ empresa.IdEmpresa;
+                    MySqlCommand cmd = new MySqlCommand(sql, con);
+                    int row = cmd.ExecuteNonQuery();
+                    if (row > 0)
+                    {
+                        result.ErrorMessage = "Se ha actualizado correctamente";
+                        result.result = true;
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                result.ErrorMessage = ex.Message;
+                result.result = false;
+
+            }
+            return result;
+        }
     }
 }
